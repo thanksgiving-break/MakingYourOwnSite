@@ -7,6 +7,7 @@ function App() {
       <p>Chase Snider</p>
       <p>Kenan Dolic</p>
       <p>Brandon Santos</p>
+      <p>Declan Casey</p>
     </div>
   );
 }
