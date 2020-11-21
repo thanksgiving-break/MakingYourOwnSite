@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
-import Test from "./Test"
-import Header from "./Header"
+import Header from "./Header";
+
 const dummyData = {
   //header
   headerStyle: null,
@@ -33,8 +33,13 @@ const dummyData = {
         "https://images.pexels.com/photos/4576085/pexels-photo-4576085.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     },
   ],
-  section1: "",
-  section2: "",
+  sections: [
+    { section: "" },
+    { section: "" },
+    { section: "" },
+    { section: "" },
+  ],
+
   // footer
   footerStyle: null,
   contactAndTitle: "Example Title",
@@ -49,14 +54,7 @@ function App() {
   console.log(dummyData); // Look at what you are getting back in the console
   return (
     <div className="App">
-      <div className = "head">
-        < Header dummyData = {dummyData}/>
-      </div>
-      {/* <h1>Hello its working</h1>
-      <p>Chase Snider</p>
-      <p>Kenan Dolic</p>
-      <p>Brandon Santos</p>
-      <p>Declan Casey</p> */}
+      <Header title={dummyData.title} links={dummyData.links} />
     </div>
   );
 }

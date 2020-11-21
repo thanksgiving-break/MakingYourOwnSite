@@ -1,21 +1,25 @@
-import React from "react"
+import React from "react";
 import "./index.css";
 
-function Header (props){
-  console.log(props)
-    return <div className = "head">
-      
-        <h1>{props.dummyData.title}</h1>
-      
-      <nav>
-        <a href = ".#">{props.dummyData.links[0].link}</a>
-        <a href = ".#">{props.dummyData.links[1].link}</a>
-        <a href = ".#">{props.dummyData.links[2].link}</a>
-        <a href = ".#">{props.dummyData.links[3].link}</a>
-      </nav>
+function Header(props) {
+  const filteredLinks = props.links.filter((item) => {
+    return item.link !== "";
+  });
 
+  return (
+    <div className="head">
+      <h1>{props.title}</h1>
+      <nav>
+        {filteredLinks.map((item, index) => {
+          return (
+            <a href=".#" key={index}>
+              {item.link}
+            </a>
+          );
+        })}
+      </nav>
     </div>
+  );
 }
 
-
-export default Header
+export default Header;
