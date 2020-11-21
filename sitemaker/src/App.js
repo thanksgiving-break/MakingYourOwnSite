@@ -1,4 +1,7 @@
 import React from "react";
+import "./index.css";
+import Header from "./Header";
+
 const dummyData = {
   //header
   headerStyle: null,
@@ -34,7 +37,7 @@ const dummyData = {
   section2: "",
   // footer
   footerStyle: null,
-  contactAndTitle: "",
+  contactAndTitle: "Example Title",
   //address
   address: "108 E Garcia St Pharr, Texas 78577",
   email: "Preince560m@gmail.com",
@@ -46,11 +49,14 @@ function App() {
   console.log(dummyData); // Look at what you are getting back in the console
   return (
     <div className="App">
-      <h1>Hello its working</h1>
+      <div className="head">
+        <Header dummyData={dummyData} />
+      </div>
+      {/* <h1>Hello its working</h1>
       <p>Chase Snider</p>
       <p>Kenan Dolic</p>
       <p>Brandon Santos</p>
-      <p>Declan Casey</p>
+      <p>Declan Casey</p> */}
     </div>
   );
 }
