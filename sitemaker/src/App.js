@@ -2,6 +2,7 @@ import React from "react";
 import "./index.css";
 import Header from "./Header";
 import Body from "./Body";
+import Footer from "./Footer"
 
 const dummyData = {
   //header
@@ -58,6 +59,8 @@ function App() {
       <Header title={dummyData.title} links={dummyData.links} />
 
       <Body photos = {dummyData.photos} sections = {dummyData.sections}/>
+
+      <Footer links = {dummyData.links}/>
     </div>
 
 
