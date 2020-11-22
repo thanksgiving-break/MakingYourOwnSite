@@ -8,15 +8,15 @@ function Footer(props) {
 
   return (
     <div className="foot">
-      {filteredNav.map((item, index) => {
-        return (
-          <nav>
+      <nav>
+        {filteredNav.map((item, index) => {
+          return (
             <a href=".#" key={index}>
               {item.link}
             </a>
-          </nav>
-        );
-      })}
+          );
+        })}
+      </nav>
     </div>
   );
 }
