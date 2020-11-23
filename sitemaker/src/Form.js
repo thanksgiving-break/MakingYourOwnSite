@@ -9,11 +9,25 @@ function Form() {
         <form>
           <div className="info">
             <h1>Header Info</h1>
-            <input placeholder="Title here..." />
-            <input placeholder="Links here..." />
-            <button>Add button here.</button>
+            <div className="inputHolder">
+              <input placeholder="Title here..." />
+            </div>
+            <div className="inputHolder">
+              <input placeholder="Link one here..." />
+            </div>
+            <div className="inputHolder">
+              <input placeholder="Link two here..." />
+            </div>
+            <div className="inputHolder">
+              <input placeholder="Link three here..." />
+            </div>
+            <div className="inputHolder">
+              <input placeholder="Link four here..." />
+            </div>
           </div>
-          <div className="info">
+          <button>Add button here.</button>
+
+          {/* <div className="info">
             <h1>Body Info</h1>
             <input placeholder="Photo upload..." />
             <input placeholder="Content here..." />
@@ -26,7 +40,7 @@ function Form() {
             <input placeholder="email here..." />
             <input placeholder="icon links here..." />
             <button>Add button here</button>
-          </div>
+          </div> */}
         </form>
       </div>
     </Draggable>

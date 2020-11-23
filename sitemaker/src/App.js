@@ -1,69 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import "./css/index.css";
-import Form from "./Form";
+// import Form from "./Form";
 import Header from "./Header";
-import Body from "./Body";
-import Footer from "./Footer";
+// import Body from "./Body";
+// import Footer from "./Footer";
 
 const dummyData = {
-  //header
   headerStyle: null,
-  title: "Example Title",
-  //nav
-  links: [
-    { link: "Home" },
-    { link: "About Us" },
-    { link: "Product" },
-    { link: "Contact" },
-  ],
-  // section
+  titleInput: "",
+  title: [],
+  linksInput: "",
+  links: [],
   sectionstyle: null,
-  photos: [
-    {
-      photo:
-        "https://images.pexels.com/photos/1091659/pexels-photo-1091659.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    },
-    {
-      photo:
-        "https://images.pexels.com/photos/2345374/pexels-photo-2345374.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    },
-    {
-      photo:
-        "https://images.pexels.com/photos/5903191/pexels-photo-5903191.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    },
-    {
-      photo:
-        "https://images.pexels.com/photos/4576085/pexels-photo-4576085.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    },
-  ],
-  sections: [
-    { section: "hello" },
-    { section: "testing" },
-    { section: "100" },
-    { section: "" },
-  ],
-
-  // footer
+  photos: [],
+  // photos: [{ photo: "" }, { photo: "" }, { photo: "" }, { photo: "" }],
+  // sections: [
+  //   { section: "" },
+  //   { section: "" },
+  //   { section: "" },
+  //   { section: "" },
+  // ],
+  sections: [],
   footerStyle: null,
-  contactAndTitle: "Example Title",
-  //address
-  address: "108 E Garcia St Pharr, Texas 78577",
-  email: "Preince560m@gmail.com",
-  phone: "(956)-222-2222",
+  contactAndTitle: "",
+  address: "",
+  email: "",
+  phone: "",
   icons: [{ iconImage: "", iconName: "" }],
   copyRights: "" /*function that gets the date of that year */,
 };
+// concat
+
 function App() {
-  console.log(dummyData); // Look at what you are getting back in the console
+  const [data, setData] = useState(dummyData);
+
+  function addingLinks(e) {
+    if (data.linksInput.length <= 2) return;
+    const newArr = data.links.concat({ link: data.linksInput });
+    setData({ linksInput: "", links: newArr });
+  }
+
+  console.log(data);
   return (
     <div className="App">
-      <Form />
+      <input
+        placeholder="title here..."
+        value={data.title}
+        onChange={(e) => setData({ ...data, title: e.target.value })}
+      />
+      <input
+        placeholder="Add Link here..."
+        value={data.linksInput}
+        onChange={(e) => setData({ ...data, linksInput: e.target.value })}
+      />
+      <button onClick={addingLinks}>Add Link</button>
+      {/* <Form /> */}
 
-      <Header title={dummyData.title} links={dummyData.links} />
+      <Header title={data.title} links={data.links} />
 
-      <Body photos={dummyData.photos} sections={dummyData.sections} />
+      {/* <Body photos={dummyData.photos} sections={dummyData.sections} /> */}
 
-      <Footer links={dummyData.links} />
+      {/* <Footer links={dummyData.links} /> */}
     </div>
   );
 }

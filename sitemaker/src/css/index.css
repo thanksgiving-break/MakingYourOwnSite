@@ -136,18 +136,44 @@ table {
   flex-direction: column;
   align-items: center;
 }
+.form .inputHolder {
+  border-bottom: 1px solid #70161e;
+}
 .form input {
-  background: #fff;
+  background: #0b3954;
+  border: none;
+  outline: none;
+  margin-bottom: 2%;
+  width: 100%;
+  color: #bfd7ea;
 }
 .form button {
   background: #ed9390;
   color: #0b3954;
   border: 1px solid #70161e;
   border-radius: 10px;
+  width: 100%;
 }
-.testing {
-  background: black;
-  height: 300px;
-  width: 300px;
-  color: white;
+.head {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: pink;
+}
+.head h1 {
+  font-size: 2.6rem;
+  width: 25%;
+  text-align: center;
+  border: solid black 1px;
+}
+.head nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 65%;
+}
+.head nav a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: black;
 }
