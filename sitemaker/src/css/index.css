@@ -123,6 +123,28 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+.form {
+  background: #0b3954;
+  color: #bfd7ea;
+  width: 10%;
+  font-size: 1.6rem;
+  padding: 1%;
+  border-radius: 10px;
+}
+.form .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form input {
+  background: #fff;
+}
+.form button {
+  background: #ed9390;
+  color: #0b3954;
+  border: 1px solid #70161e;
+  border-radius: 10px;
+}
 .testing {
   background: black;
   height: 300px;

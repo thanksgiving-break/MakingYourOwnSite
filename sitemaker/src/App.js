@@ -1,9 +1,9 @@
 import React from "react";
 import "./css/index.css";
+import Form from "./Form";
 import Header from "./Header";
 import Body from "./Body";
 import Footer from "./Footer";
-import Draggable from "react-draggable";
 
 const dummyData = {
   //header
@@ -57,14 +57,13 @@ function App() {
   console.log(dummyData); // Look at what you are getting back in the console
   return (
     <div className="App">
+      <Form />
+
       <Header title={dummyData.title} links={dummyData.links} />
 
       <Body photos={dummyData.photos} sections={dummyData.sections} />
 
       <Footer links={dummyData.links} />
-      <Draggable>
-        <div className="testing">Michael Test</div>
-      </Draggable>
     </div>
   );
 }
