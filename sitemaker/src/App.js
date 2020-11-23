@@ -3,6 +3,7 @@ import "./css/index.css";
 import Header from "./Header";
 import Body from "./Body";
 import Footer from "./Footer";
+import Draggable from "react-draggable";
 
 const dummyData = {
   //header
@@ -61,7 +62,9 @@ function App() {
       <Body photos={dummyData.photos} sections={dummyData.sections} />
 
       <Footer links={dummyData.links} />
-      <div className="testing">Michael Test</div>
+      <Draggable>
+        <div className="testing">Michael Test</div>
+      </Draggable>
     </div>
   );
 }
