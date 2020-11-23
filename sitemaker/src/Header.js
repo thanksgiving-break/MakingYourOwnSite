@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+// import "./index.css";
 
 function Header(props) {
   const filteredLinks = props.links.filter((item) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+// import "";
 import Header from "./Header";
 import Body from "./Body";
 import Footer from "./Footer";
@@ -61,6 +61,7 @@ function App() {
       <Body photos={dummyData.photos} sections={dummyData.sections} />
 
       <Footer links={dummyData.links} />
+      <div className="testing">Michael Test</div>
     </div>
   );
 }
