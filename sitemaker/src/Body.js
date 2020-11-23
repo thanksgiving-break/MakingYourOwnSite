@@ -1,4 +1,5 @@
 import React from "react";
+import "./css/index.css";
 
 function Body(props) {
   const filteredPics = props.photos.filter((item) => {

@@ -1,5 +1,5 @@
 import React from "react";
-// import "./index.css";
+import "./css/index.css";
 
 function Footer(props) {
   const filteredNav = props.links.filter((item) => {
