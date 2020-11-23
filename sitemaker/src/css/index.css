@@ -164,7 +164,6 @@ table {
   font-size: 2.6rem;
   width: 25%;
   text-align: center;
-  border: solid black 1px;
 }
 .head nav {
   display: flex;
