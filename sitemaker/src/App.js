@@ -8,18 +8,10 @@ import Header from "./Header";
 const dummyData = {
   headerStyle: null,
   titleInput: "",
-  title: [],
   linksInput: "",
   links: [],
   sectionstyle: null,
   photos: [],
-  // photos: [{ photo: "" }, { photo: "" }, { photo: "" }, { photo: "" }],
-  // sections: [
-  //   { section: "" },
-  //   { section: "" },
-  //   { section: "" },
-  //   { section: "" },
-  // ],
   sections: [],
   footerStyle: null,
   contactAndTitle: "",
@@ -29,34 +21,42 @@ const dummyData = {
   icons: [{ iconImage: "", iconName: "" }],
   copyRights: "" /*function that gets the date of that year */,
 };
-// concat
 
 function App() {
   const [data, setData] = useState(dummyData);
 
   function addingLinks(e) {
+    // e.preventDefault();
     if (data.linksInput.length <= 2) return;
     const newArr = data.links.concat({ link: data.linksInput });
-    setData({ linksInput: "", links: newArr });
+    setData({ ...data, linksInput: "", links: newArr });
   }
 
   console.log(data);
   return (
     <div className="App">
-      <input
-        placeholder="title here..."
-        value={data.title}
-        onChange={(e) => setData({ ...data, title: e.target.value })}
-      />
-      <input
-        placeholder="Add Link here..."
-        value={data.linksInput}
-        onChange={(e) => setData({ ...data, linksInput: e.target.value })}
-      />
-      <button onClick={addingLinks}>Add Link</button>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
+        <input
+          placeholder="title here..."
+          value={data.titleInput}
+          onChange={(e) => setData({ ...data, titleInput: e.target.value })}
+        />
+
+        <input
+          placeholder="Add Link here..."
+          value={data.linksInput}
+          onChange={(e) => setData({ ...data, linksInput: e.target.value })}
+        />
+
+        <button onClick={addingLinks}>Add Link</button>
+      </form>
       {/* <Form /> */}
 
-      <Header title={data.title} links={data.links} />
+      <Header data={data} />
 
       {/* <Body photos={dummyData.photos} sections={dummyData.sections} /> */}
 
