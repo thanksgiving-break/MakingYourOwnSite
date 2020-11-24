@@ -8,23 +8,14 @@ import Header from "./Header";
 const dummyData = {
   headerStyle: null,
   titleInput: "",
-  title: [],
   linksInput: "",
   links: [],
   sectionstyle: null,
   photos: [],
-  // photos: [{ photo: "" }, { photo: "" }, { photo: "" }, { photo: "" }],
-  // sections: [
-  //   { section: "" },
-  //   { section: "" },
-  //   { section: "" },
-  //   { section: "" },
-  // ],
   sectionsInput: "",
   sections: [],
   footerStyle: null,
   contactAndTitle: "",
-
   addressInput: "",
   address: [],
   emailInput: "",
@@ -34,12 +25,11 @@ const dummyData = {
   icons: [{ iconImage: "", iconName: "" }],
   copyRights: "" /*function that gets the date of that year */,
 };
-// concat
 
 function App() {
   const [data, setData] = useState(dummyData);
-
   console.log(data);
+  
   function addTitle(e){
    if(data.title.length >= 1) return;
     const newTitle = data.title.concat(data.titleInput);
@@ -47,6 +37,7 @@ function App() {
   }
 
   function addingLinks(e) {
+    // e.preventDefault();
     if (data.linksInput.length <= 2) return;
     const newArr = data.links.concat({link: data.linksInput});
     setData({...data, linksInput: "", links: newArr });
@@ -79,45 +70,59 @@ function App() {
   console.log(data);
   return (
     <div className="App">
+     <form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
+        
       <input
         placeholder="Add Title here..."
         value={data.titleInput}
         onChange={(e) => setData({ ...data, titleInput: e.target.value })}
       />
       <button onClick={addTitle}>Add Title</button>
+
       <input
         placeholder="Add Link here..."
         value={data.linksInput}
         onChange={(e) => setData({ ...data, linksInput: e.target.value })}
       />
       <button onClick={addingLinks}>Add Link</button>
+
       <input
         placeholder="Add Address here..."
         value={data.addressInput}
         onChange={(e) => setData({ ...data, addressInput: e.target.value })}
       />
       <button onClick={addAddress}>Add Address</button>
+
       <input
         placeholder="Add Sections here..."
         value={data.sectionsInput}
         onChange={(e) => setData({...data, sectionsInput: e.target.value })}
       />
       <button onClick={addSection}>Add Sections</button>
+
       <input
         placeholder="Add Email here..."
         value={data.emailInput}
         onChange={(e) => setData({ ...data, emailInput: e.target.value })}
       />
       <button onClick={addEmail}>Add Email</button>
+
       <input
         placeholder="Add Phone Number here..."
         value={data.phoneInput}
         onChange={(e) => setData({ ...data, phoneInput: e.target.value })}
       />
       <button onClick={addPhone}>Add Phone Number</button>
+
+      </form>
+
       {/* <Form /> */}
 
-      <Header title={data.title} links={data.links} />
+      <Header data={data} />
 
       {/* <Body photos={dummyData.photos} sections={dummyData.sections} /> */}
 
