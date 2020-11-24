@@ -2,22 +2,24 @@ import React from "react";
 // import "./css/index.css";
 
 function Body(props) {
-  const filteredPics = props.photos.filter((item) => {
-    return item.photo !== "";
-  });
+  // const filteredPics = props.photos.filter((item) => {
+  //   return item.photo !== "";
+  // });
 
-  const filteredSections = props.sections.filter((item) => {
-    return item.section !== "";
-  });
-
+  // const filteredSections = props.sections.filter((item) => {
+  //   return item.section !== "";
+  // });
+console.log(props.sections);
   return (
-    <div>
-      {filteredPics.map((item, index) => {
+    <div className="body">
+      {/* {filteredPics.map((item, index) => {
         return <img src={item.photo} alt={"testing"} key={index} />;
       })}
       {filteredSections.map((item, index) => {
         return <p key={index}> {item.section}</p>;
-      })}
+      })} */}
+
+      
     </div>
   );
 }
