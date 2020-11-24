@@ -4,17 +4,19 @@ import React from "react";
 function Header(props) {
   return (
     <div className="head">
-      <h1>{props.data.titleInput}</h1>
+      <h1>{props.title}</h1>
       <nav>
-        { props.links.length > 0 
-    ? props.links.map((item, index) => {
-          return (
-            <a href=".#" key={index}>
-              {item.link}
-            </a>
-          );
-        })
-    : <p></p>}
+        {props.links.length > 0 ? (
+          props.links.map((item, index) => {
+            return (
+              <a href=".#" key={index}>
+                {item.link}
+              </a>
+            );
+          })
+        ) : (
+          <p></p>
+        )}
       </nav>
     </div>
   );

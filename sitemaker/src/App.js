@@ -8,6 +8,7 @@ import Header from "./Header";
 const dummyData = {
   headerStyle: null,
   titleInput: "",
+  title: [],
   linksInput: "",
   links: [],
   sectionstyle: null,
@@ -29,100 +30,95 @@ const dummyData = {
 function App() {
   const [data, setData] = useState(dummyData);
   console.log(data);
-  
-  function addTitle(e){
-   if(data.title.length >= 1) return;
+
+  function addTitle(e) {
+    if (data.title.length >= 1) return;
     const newTitle = data.title.concat(data.titleInput);
-    setData({...data, titleInput: "", title: newTitle});
+    setData({ ...data, titleInput: "", title: newTitle });
   }
 
   function addingLinks(e) {
-    // e.preventDefault();
     if (data.linksInput.length <= 2) return;
-    const newArr = data.links.concat({link: data.linksInput});
-    setData({...data, linksInput: "", links: newArr });
+    const newArr = data.links.concat({ link: data.linksInput });
+    setData({ ...data, linksInput: "", links: newArr });
   }
 
-  function addSection(e){
-    if(data.sectionsInput.length < 2) return;
-    const newSection = data.sections.concat({sections: data.sectionsInput});
-    setData({...data, sectionsInput: "", sections: newSection});
+  function addSection(e) {
+    if (data.sectionsInput.length < 2) return;
+    const newSection = data.sections.concat({ sections: data.sectionsInput });
+    setData({ ...data, sectionsInput: "", sections: newSection });
   }
 
-  function addAddress(e){
-    if(data.addressInput.length < 1) return;
-     const newAddress = data.address.concat(data.addressInput);
-     setData({...data, addressInput: "", address: newAddress});
-   }
+  function addAddress(e) {
+    if (data.addressInput.length < 1) return;
+    const newAddress = data.address.concat(data.addressInput);
+    setData({ ...data, addressInput: "", address: newAddress });
+  }
 
-   function addEmail(e){
-    if(data.emailInput.length < 7) return;
-     const newEmail = data.email.concat(data.emailInput);
-     setData({...data, emailInput: "", email: newEmail});
-   }
+  function addEmail(e) {
+    if (data.emailInput.length < 7) return;
+    const newEmail = data.email.concat(data.emailInput);
+    setData({ ...data, emailInput: "", email: newEmail });
+  }
 
-   function addPhone(e){
-    if(data.phoneInput.length < 7) return;
-     const newPhone = data.phone.concat(data.phoneInput);
-     setData({...data, phoneInput: "", phone: newPhone});
-   }
+  function addPhone(e) {
+    if (data.phoneInput.length < 7) return;
+    const newPhone = data.phone.concat(data.phoneInput);
+    setData({ ...data, phoneInput: "", phone: newPhone });
+  }
 
   console.log(data);
   return (
     <div className="App">
-     <form
+      <form
         onSubmit={(e) => {
           e.preventDefault();
         }}
       >
-        
-      <input
-        placeholder="Add Title here..."
-        value={data.titleInput}
-        onChange={(e) => setData({ ...data, titleInput: e.target.value })}
-      />
-      <button onClick={addTitle}>Add Title</button>
+        <input
+          placeholder="Add Title here..."
+          value={data.titleInput}
+          onChange={(e) => setData({ ...data, titleInput: e.target.value })}
+        />
+        <button onClick={addTitle}>Add Title</button>
 
-      <input
-        placeholder="Add Link here..."
-        value={data.linksInput}
-        onChange={(e) => setData({ ...data, linksInput: e.target.value })}
-      />
-      <button onClick={addingLinks}>Add Link</button>
+        <input
+          placeholder="Add Link here..."
+          value={data.linksInput}
+          onChange={(e) => setData({ ...data, linksInput: e.target.value })}
+        />
+        <button onClick={addingLinks}>Add Link</button>
 
-      <input
-        placeholder="Add Address here..."
-        value={data.addressInput}
-        onChange={(e) => setData({ ...data, addressInput: e.target.value })}
-      />
-      <button onClick={addAddress}>Add Address</button>
+        <input
+          placeholder="Add Address here..."
+          value={data.addressInput}
+          onChange={(e) => setData({ ...data, addressInput: e.target.value })}
+        />
+        <button onClick={addAddress}>Add Address</button>
 
-      <input
-        placeholder="Add Sections here..."
-        value={data.sectionsInput}
-        onChange={(e) => setData({...data, sectionsInput: e.target.value })}
-      />
-      <button onClick={addSection}>Add Sections</button>
+        <input
+          placeholder="Add Sections here..."
+          value={data.sectionsInput}
+          onChange={(e) => setData({ ...data, sectionsInput: e.target.value })}
+        />
+        <button onClick={addSection}>Add Sections</button>
 
-      <input
-        placeholder="Add Email here..."
-        value={data.emailInput}
-        onChange={(e) => setData({ ...data, emailInput: e.target.value })}
-      />
-      <button onClick={addEmail}>Add Email</button>
+        <input
+          placeholder="Add Email here..."
+          value={data.emailInput}
+          onChange={(e) => setData({ ...data, emailInput: e.target.value })}
+        />
+        <button onClick={addEmail}>Add Email</button>
 
-      <input
-        placeholder="Add Phone Number here..."
-        value={data.phoneInput}
-        onChange={(e) => setData({ ...data, phoneInput: e.target.value })}
-      />
-      <button onClick={addPhone}>Add Phone Number</button>
-
+        <input
+          placeholder="Add Phone Number here..."
+          value={data.phoneInput}
+          onChange={(e) => setData({ ...data, phoneInput: e.target.value })}
+        />
+        <button onClick={addPhone}>Add Phone Number</button>
       </form>
 
-      {/* <Form /> */}
-
-      <Header data={data} />
+      <Header title={data.title} links={data.links} />
 
       {/* <Body photos={dummyData.photos} sections={dummyData.sections} /> */}
 
