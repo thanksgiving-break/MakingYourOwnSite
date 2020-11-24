@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./css/index.css";
 // import Form from "./Form";
 import Header from "./Header";
-// import Body from "./Body";
-// import Footer from "./Footer";
+import Body from "./Body";
+import Footer from "./Footer";
 
 const dummyData = {
   headerStyle: null,
@@ -120,9 +120,9 @@ function App() {
 
       <Header title={data.title} links={data.links} />
 
-      {/* <Body photos={dummyData.photos} sections={dummyData.sections} /> */}
+      <Body photos={data.photos} sections={data.sections} />
 
-      {/* <Footer links={dummyData.links} /> */}
+      <Footer links={data.links} address={data.address} email={data.email} phone={data.phone} icons={data.icons} />
     </div>
   );
 }
