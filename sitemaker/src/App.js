@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./css/index.css";
 // import Form from "./Form";
+import Draggable from "react-draggable";
 import Header from "./Header";
 import Body from "./Body";
 import Footer from "./Footer";
@@ -70,59 +71,79 @@ function App() {
   console.log(data);
   return (
     <div className="App">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-      >
-        <input
-          placeholder="Add Title here..."
-          value={data.titleInput}
-          onChange={(e) => setData({ ...data, titleInput: e.target.value })}
-        />
-        <button onClick={addTitle}>Add Title</button>
-
-        <input
-          placeholder="Add Link here..."
-          value={data.linksInput}
-          onChange={(e) => setData({ ...data, linksInput: e.target.value })}
-        />
-        <button onClick={addingLinks}>Add Link</button>
-
-        <input
-          placeholder="Add Address here..."
-          value={data.addressInput}
-          onChange={(e) => setData({ ...data, addressInput: e.target.value })}
-        />
-        <button onClick={addAddress}>Add Address</button>
-
-        <input
-          placeholder="Add Sections here..."
-          value={data.sectionsInput}
-          onChange={(e) => setData({ ...data, sectionsInput: e.target.value })}
-        />
-        <button onClick={addSection}>Add Sections</button>
-
-        <input
-          placeholder="Add Email here..."
-          value={data.emailInput}
-          onChange={(e) => setData({ ...data, emailInput: e.target.value })}
-        />
-        <button onClick={addEmail}>Add Email</button>
-
-        <input
-          placeholder="Add Phone Number here..."
-          value={data.phoneInput}
-          onChange={(e) => setData({ ...data, phoneInput: e.target.value })}
-        />
-        <button onClick={addPhone}>Add Phone Number</button>
-      </form>
-
       <Header title={data.title} links={data.links} />
 
       <Body photos={data.photos} sections={data.sections} />
 
-      <Footer links={data.links} address={data.address} email={data.email} phone={data.phone} icons={data.icons} />
+      <Footer
+        links={data.links}
+        address={data.address}
+        email={data.email}
+        phone={data.phone}
+        icons={data.icons}
+      />
+      <Draggable>
+        <form
+          className="form"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <div className="info">
+            <input
+              placeholder="Add Title here..."
+              value={data.titleInput}
+              onChange={(e) => setData({ ...data, titleInput: e.target.value })}
+            />
+          </div>
+
+          <button onClick={addTitle}>Add Title</button>
+          <div className="info">
+            <input
+              placeholder="Add Link here..."
+              value={data.linksInput}
+              onChange={(e) => setData({ ...data, linksInput: e.target.value })}
+            />
+          </div>
+          <button onClick={addingLinks}>Add Link</button>
+          <div className="info">
+            <input
+              placeholder="Add Address here..."
+              value={data.addressInput}
+              onChange={(e) =>
+                setData({ ...data, addressInput: e.target.value })
+              }
+            />
+          </div>
+          <button onClick={addAddress}>Add Address</button>
+          <div className="info">
+            <input
+              placeholder="Add Sections here..."
+              value={data.sectionsInput}
+              onChange={(e) =>
+                setData({ ...data, sectionsInput: e.target.value })
+              }
+            />
+          </div>
+          <button onClick={addSection}>Add Sections</button>
+          <div className="info">
+            <input
+              placeholder="Add Email here..."
+              value={data.emailInput}
+              onChange={(e) => setData({ ...data, emailInput: e.target.value })}
+            />
+          </div>
+          <button onClick={addEmail}>Add Email</button>
+          <div className="info">
+            <input
+              placeholder="Add Phone Number here..."
+              value={data.phoneInput}
+              onChange={(e) => setData({ ...data, phoneInput: e.target.value })}
+            />
+          </div>
+          <button onClick={addPhone}>Add Phone Number</button>
+        </form>
+      </Draggable>
     </div>
   );
 }
